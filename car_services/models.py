@@ -11,7 +11,7 @@ class ServiceCategoryChoices(models.TextChoices):
     REPAIRS = 'Repairs', 'Repairs'
     INSPECTIONS = 'Inspections', 'Inspections'
     INSTALLATIONS = 'Installations', 'Installations'
-    CUSTOM = 'Custom', 'Custom'
+    CUSTOM = 'Custom', 'Custom (specify service details in description box!)'
 
 # Service Type Choices Model
 class ServiceTypeChoices(models.TextChoices):
@@ -24,7 +24,7 @@ class ServiceTypeChoices(models.TextChoices):
     EMISSIONS_INSPECTION = 'Emissions Inspection', 'Emissions Inspection (45 minutes)'
     AUDIO_SYSTEM_INSTALLATION = 'Audio System Installation', 'Audio System Installation (120 minutes)'
     WINDOW_TINTING = 'Window Tinting', 'Window Tinting (90 minutes)'
-    CUSTOM = 'Custom', 'Custom (specify duration)'
+    CUSTOM = 'Custom', 'Custom (specify service details in description box!)'
 
 # Service model
 class Service(models.Model):
@@ -40,23 +40,30 @@ class Service(models.Model):
         default=ServiceTypeChoices.OIL_CHANGE
     )
 
-    duration = models.PositiveIntegerField(blank=True, null=True, help_text='Duration in minutes for custom service')
+    duration = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+        help_text='Duration in minutes for custom service'
+    )
 
     def save(self, *args, **kwargs):
-        if self.type != ServiceTypeChoices.CUSTOM and not self.duration:
-            duration_map = {
-                ServiceTypeChoices.OIL_CHANGE: 60,
-                ServiceTypeChoices.TIRE_ROTATION: 45,
-                ServiceTypeChoices.BRAKE_INSPECTION: 90,
-                ServiceTypeChoices.ENGINE_REPAIR: 180,
-                ServiceTypeChoices.TRANSMISSION_REPAIR: 240,
-                ServiceTypeChoices.SAFETY_INSPECTION: 60,
-                ServiceTypeChoices.EMISSIONS_INSPECTION: 45,
-                ServiceTypeChoices.AUDIO_SYSTEM_INSTALLATION: 120,
-                ServiceTypeChoices.WINDOW_TINTING: 90,
-            }
-            self.duration = duration_map.get(self.type, 60)
+        duration_map = {
+            ServiceTypeChoices.OIL_CHANGE: 60,
+            ServiceTypeChoices.TIRE_ROTATION: 45,
+            ServiceTypeChoices.BRAKE_INSPECTION: 90,
+            ServiceTypeChoices.ENGINE_REPAIR: 180,
+            ServiceTypeChoices.TRANSMISSION_REPAIR: 240,
+            ServiceTypeChoices.SAFETY_INSPECTION: 60,
+            ServiceTypeChoices.EMISSIONS_INSPECTION: 45,
+            ServiceTypeChoices.AUDIO_SYSTEM_INSTALLATION: 120,
+            ServiceTypeChoices.WINDOW_TINTING: 90,
+            ServiceTypeChoices.CUSTOM: 120,  # Default duration for Custom type
+        }
+        self.duration = duration_map.get(self.type, 60)  # Default duration based on type
         super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.category} - {self.type}" + (f" ({self.duration} minutes)" if self.duration else "")
 
 """
 Vehicle Model
@@ -69,7 +76,7 @@ class Vehicle(models.Model):
 
     def __str__(self):
         return f"{self.make} {self.model} ({self.year})"
-    
+
 """
 Appointment Model
 """
@@ -92,10 +99,11 @@ class Appointment(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
-        if self.service.type == ServiceTypeChoices.CUSTOM:
+        if self.service.category == ServiceCategoryChoices.CUSTOM:
             if not self.custom_service_duration:
-                raise ValidationError('Custom service type requires a custom duration to be specified.')
+                raise ValidationError('Custom service category requires a custom duration to be specified.')
             self.service.duration = self.custom_service_duration
+            self.service.type = ServiceTypeChoices.CUSTOM  # Set type to 'Custom'
         else:
             self.service.duration = self.service.duration or 0
         super().save(*args, **kwargs)
