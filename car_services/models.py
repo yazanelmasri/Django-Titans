@@ -1,19 +1,18 @@
+# models.py
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
-"""
-Service Models
-"""
-# Service Category Choices Model
 class ServiceCategoryChoices(models.TextChoices):
     MAINTENANCE = 'Maintenance', 'Maintenance'
     REPAIRS = 'Repairs', 'Repairs'
     INSPECTIONS = 'Inspections', 'Inspections'
     INSTALLATIONS = 'Installations', 'Installations'
-    CUSTOM = 'Custom', 'Custom (specify service details in description box!)'
+    CUSTOM = 'Custom', 'Custom'
 
-# Service Type Choices Model
 class ServiceTypeChoices(models.TextChoices):
     OIL_CHANGE = 'Oil Change', 'Oil Change (60 minutes)'
     TIRE_ROTATION = 'Tire Rotation', 'Tire Rotation (45 minutes)'
@@ -26,7 +25,6 @@ class ServiceTypeChoices(models.TextChoices):
     WINDOW_TINTING = 'Window Tinting', 'Window Tinting (90 minutes)'
     CUSTOM = 'Custom', 'Custom (specify service details in description box!)'
 
-# Service model
 class Service(models.Model):
     category = models.CharField(
         max_length=100,
@@ -46,28 +44,9 @@ class Service(models.Model):
         help_text='Duration in minutes for custom service'
     )
 
-    def save(self, *args, **kwargs):
-        duration_map = {
-            ServiceTypeChoices.OIL_CHANGE: 60,
-            ServiceTypeChoices.TIRE_ROTATION: 45,
-            ServiceTypeChoices.BRAKE_INSPECTION: 90,
-            ServiceTypeChoices.ENGINE_REPAIR: 180,
-            ServiceTypeChoices.TRANSMISSION_REPAIR: 240,
-            ServiceTypeChoices.SAFETY_INSPECTION: 60,
-            ServiceTypeChoices.EMISSIONS_INSPECTION: 45,
-            ServiceTypeChoices.AUDIO_SYSTEM_INSTALLATION: 120,
-            ServiceTypeChoices.WINDOW_TINTING: 90,
-            ServiceTypeChoices.CUSTOM: 120,  # Default duration for Custom type
-        }
-        self.duration = duration_map.get(self.type, 60)  # Default duration based on type
-        super().save(*args, **kwargs)
-
     def __str__(self):
         return f"{self.category} - {self.type}" + (f" ({self.duration} minutes)" if self.duration else "")
 
-"""
-Vehicle Model
-"""
 class Vehicle(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='vehicles')
     make = models.CharField(max_length=100)
@@ -77,36 +56,30 @@ class Vehicle(models.Model):
     def __str__(self):
         return f"{self.make} {self.model} ({self.year})"
 
-"""
-Appointment Model
-"""
 class Appointment(models.Model):
-    class Status(models.TextChoices):
-        CONFIRMED = 'Confirmed', 'Confirmed'
-        PENDING = 'Pending', 'Pending'
-        COMPLETED = 'Completed', 'Completed'
-        CANCELLED = 'Cancelled', 'Cancelled'
-        RESCHEDULED = 'Rescheduled', 'Rescheduled'
+    STATUS_CHOICES = [
+        ('CONFIRMED', 'Confirmed'),
+        ('PENDING', 'Pending'),
+        ('COMPLETED', 'Completed'),
+        ('CANCELLED', 'Cancelled'),
+        ('RESCHEDULED', 'Rescheduled'),
+    ]
 
     appointment_id = models.AutoField(primary_key=True)
     vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE, related_name='appointments')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='appointments')
     service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='appointments')
-    status = models.CharField(max_length=100, choices=Status.choices, default=Status.PENDING)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDING')
     appointment_date = models.DateTimeField()
-    custom_service_duration = models.PositiveIntegerField(blank=True, null=True, help_text='Duration in minutes for custom service')
+    description = models.TextField(blank=True, help_text="Enter service details")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def save(self, *args, **kwargs):
-        if self.service.category == ServiceCategoryChoices.CUSTOM:
-            if not self.custom_service_duration:
-                raise ValidationError('Custom service category requires a custom duration to be specified.')
-            self.service.duration = self.custom_service_duration
-            self.service.type = ServiceTypeChoices.CUSTOM  # Set type to 'Custom'
-        else:
-            self.service.duration = self.service.duration or 0
-        super().save(*args, **kwargs)
-
     def __str__(self):
         return f"Appointment for {self.user.username} on {self.appointment_date}"
+
+# Signal to validate custom services before saving
+@receiver(pre_save, sender=Appointment)
+def validate_custom_service(sender, instance, **kwargs):
+    if instance.service.type == ServiceTypeChoices.CUSTOM and not instance.description:
+        raise ValidationError('Custom service requires service details in description.')
