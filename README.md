@@ -1,5 +1,5 @@
 
-#Django Titans
+# Django Titans
 
 This is a full-stack framework project built using Django, Python, HTML and CSS. Welcome to our Car Service Booking Site! 
 
