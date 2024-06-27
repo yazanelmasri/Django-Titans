@@ -10,7 +10,7 @@ body {
 }
 
 header {
-    background-color: rgb(107, 78, 3);
+    background-color: #9b7a25;
     color: white;
     padding: 10px;
     margin-bottom: 0;
@@ -69,6 +69,7 @@ header h1 {
     height: fit-content;
     width: 270px;
     margin: 10px;
+    position: relative;
 }
 
 .card-container{
@@ -89,7 +90,7 @@ header h1 {
 }
 
 .card a{
-    background-color: #eeb868;
+    background-color: #9b7a25;
     color: #ffffff;
     padding: 15px 20px;
     display: block;
@@ -98,7 +99,7 @@ header h1 {
 }
 
 .card:hover {
-    background-color: #b9aed7;
+    background-color: #d1aa73;
     color: #ffffff;
     cursor: pointer;
     text-transform: scale(0,5);
@@ -107,7 +108,7 @@ header h1 {
 }
 
 footer {
-    background-color: rgb(107, 78, 3);
+    background-color:#9b7a25;
     color: white;
     text-align: center;
     padding: 1rem 0;
