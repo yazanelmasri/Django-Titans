@@ -3,11 +3,11 @@
 
 This is a full-stack framework project built using Django, Python, HTML and CSS. Welcome to our Car Service Booking Site! 
 
-##About
+## About
 
 This platform is designed to provide a seamless and efficient way for users to book various car services. Whether you need routine maintenance, emergency repairs, or specialised services, our site connects you with trusted service providers in your area. Our goal is to create a functioning and responsive website, that allows users to post, comment and like or unlike recipes. This project has been built for educational purposes.
 
-##Table of Contents
+## Table of Contents
 UX
 -User Stories
 Scope 
@@ -24,7 +24,7 @@ Credits
 UX
 *
 
-##User Stories
+## User Stories
 Epic: Registration/Login
 Given I am a new user, I should be able to create an account with my email and password.
 Given I am a returning user, I should be able to log in with my email and password.
@@ -50,14 +50,14 @@ Given I have completed the payment, I should receive a confirmation email with a
 I should be able to view and manage my upcoming appointments through my account dashboard.
 
 
-##Scope
+## Scope
 Features
 *
 
 ##Structure
 *
 
-##Wireframes
+## Wireframes
 All wireframes were created used Balsamiq
 
 Wireframes for each device are linked here:
@@ -88,13 +88,13 @@ Surface
 Design
 
 
-##Technologies Used
+## Technologies Used
 Languages
 HTML5
 CSS3
 Python
 
-##Frameworks, Libraries & Programs Used
+## Frameworks, Libraries & Programs Used
 GitHub - Holds the repository of my project, GitHub connects to GitPod and Heroku.
 
 GitPod – Connected to GitHub, GitPod hosted the coding space, allowing the project to be built and then committed to the GitHub repository.
@@ -129,7 +129,7 @@ W3C CSS Validator - was used to validate CSS
 
 *Coolors - to make color palette
 
-##Testing
+## Testing
 User Story Testing
 Testing Users Stories form (UX) Section
 EPIC: Superuser / Admin
@@ -194,10 +194,10 @@ As a User I can search the desirable recipe by keyword so that I can find the re
 As a User I can see the most recent recipes so that I can keep up to date with the latest recipes
 
 
-Bugs and Issues
+## Bugs and Issues
 *
 
-Deployment
+## Deployment
 This project was deployed using Github and Heroku.
 
 Github
@@ -212,11 +212,11 @@ Once created I opened the new repository and clicked the green ‘Gitpod’ butt
 Django and Heroku
 To get the Django framework installed and set up I followed the Code institutes Django Blog cheatsheet
 
-Credits
+## Credits
 *
 
-Media
+## Media
 *
 
-Acknowledgements
+## Acknowledgements
 *
