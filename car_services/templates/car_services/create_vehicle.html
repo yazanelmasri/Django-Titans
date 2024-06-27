@@ -3,6 +3,7 @@
 {% block title %}Add Vehicle{% endblock %}
 
 {% block content %}
+<div class="card">
 <div class="container">
     <h1>Add Vehicle</h1>
     <form method="post">
@@ -11,5 +12,6 @@
         <button type="submit">Add</button>
     </form>
     <a href="{% url 'vehicle_list' %}">Back to Vehicles</a>
+</div>
 </div>
 {% endblock %}
