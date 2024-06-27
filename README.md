@@ -53,7 +53,16 @@ UX
 
 ## Scope
 ### Features
-*
+#### Home page
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/3f8e7745-3f33-48fb-80a4-de37f762c6bb)
+
+#### Login
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/d775d12f-d3ea-4a45-8976-b4b171502619)
+
+#### Login
+
+
+
 
 ##S tructure
 *
@@ -161,6 +170,16 @@ Testing Users Stories form (UX) Section
 - we forgot to add some packages to the requirements.txt file
 
   ![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/5965869d-05c4-4f1a-9e33-17eb72b76dde)
+
+- when opening a new workspace we forgot to install the requirements.txt file
+
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/fea0730f-ba09-4cc0-9cf7-7db056a1a72d)
+
+- we forgot to add each of our gitpod urls to allowed hosts
+
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/47ee1393-ca6b-41f0-8e49-418f7e301770)
+
+
 
 
 
