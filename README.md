@@ -59,12 +59,14 @@ UX
 #### Login
 ![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/d775d12f-d3ea-4a45-8976-b4b171502619)
 
-#### Login
+#### Sign-Up
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/3b0a9a4a-b885-498c-ac62-ab5653c27454)
 
 
 
 
-##S tructure
+
+## Structure
 *
 
 ## Wireframes
