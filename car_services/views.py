@@ -1,33 +1,17 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.urls import reverse_lazy
-from django.views import View
 from django.views.generic import TemplateView, UpdateView
 from django.utils.decorators import method_decorator
 from django.contrib.admin.views.decorators import staff_member_required
-from .models import Appointment, Service, Vehicle, ServiceTypeChoices, ServiceCategoryChoices
+from .models import Appointment, Service, Vehicle
 from .forms import VehicleForm, AppointmentForm, SignupForm, ServiceForm, CustomUserChangeForm
-from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserChangeForm
-from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import TemplateView, UpdateView
-from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.contrib.admin.views.decorators import staff_member_required
-from .models import Appointment, Service, Vehicle, ServiceTypeChoices, ServiceCategoryChoices
-from .forms import VehicleForm, AppointmentForm, SignupForm
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.decorators import login_required
-from django.contrib.admin.views.decorators import staff_member_required
-from .models import Service
-from .forms import ServiceForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import authenticate, login, logout
 
 """
 Account Views
@@ -70,6 +54,7 @@ class ProfileEditView(LoginRequiredMixin, UpdateView):
         return self.render_to_response(
             self.get_context_data(form=form, password_form=password_form)
         )
+
 class DeleteAccountView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         user = request.user
@@ -98,16 +83,6 @@ class SignupView(View):
         if user is not None:
             login(request, user)
 
-"""
-General Views
-"""
-
-class IndexView(View):
-    template_name = 'index.html'
-
-    def get(self, request):
-        return render(request, self.template_name)
-
 class LoginView(View):
     template_name = 'login.html'
 
@@ -127,6 +102,16 @@ class LogoutView(LoginRequiredMixin, View):
     def get(self, request):
         logout(request)
         return redirect('/')
+
+"""
+General Views
+"""
+
+class IndexView(View):
+    template_name = 'index.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
 
 """
 Vehicle Views
@@ -185,7 +170,7 @@ class VehicleDeleteView(View):
         if vehicle.user == request.user:
             vehicle.delete()
         return redirect('vehicle_list')
-    
+
 class VehicleDetailView(View):
     template_name = 'vehicle_detail.html'
 
