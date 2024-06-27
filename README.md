@@ -72,28 +72,24 @@ Tablet
 Mobile
 (image)
 
-Database schema
+####Database schema
 ![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/05ea3b75-bf86-4ae3-9582-0bb055b4a08e)
 
 
 
-Models
-Post Model
+####Models
+*
 
 
-Comment Model
-
-
-Surface
-
+####Surface
 Design
 
 
 ## Technologies Used
 Languages
-HTML5
-CSS3
-Python
+- HTML5
+- CSS3
+- Python
 
 ## Frameworks, Libraries & Programs Used
 GitHub - Holds the repository of my project, GitHub connects to GitPod and Heroku.
