@@ -3,11 +3,13 @@
 {% block title %}Add Vehicle{% endblock %}
 
 {% block content %}
-<h1>Add Vehicle</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Add</button>
-</form>
-<a href="{% url 'vehicle_list' %}">Back to Vehicles</a>
+<div class="container">
+    <h1>Add Vehicle</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+    <a href="{% url 'vehicle_list' %}">Back to Vehicles</a>
+</div>
 {% endblock %}
