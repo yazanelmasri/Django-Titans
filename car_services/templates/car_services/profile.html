@@ -3,6 +3,7 @@
 {% block title %}Profile{% endblock %}
 
 {% block content %}
+<div class="card">
 <h1>Profile</h1>
 <p>Welcome, {{ user.username }}!</p>
 <ul>
@@ -12,4 +13,5 @@
     <li>Date joined: {{ user.date_joined }}</li>
 </ul>
 <a href="{% url 'profile_edit' %}">Edit Profile</a>
+</div>
 {% endblock %}

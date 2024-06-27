@@ -3,6 +3,7 @@
 {% block title %}Appointment Details{% endblock %}
 
 {% block content %}
+<div class="card">
 <h1>Appointment Details</h1>
 <p><strong>Service:</strong> {{ appointment.service }}</p>
 <p><strong>Vehicle:</strong> {{ appointment.vehicle }}</p>
@@ -10,4 +11,5 @@
 <p><strong>Status:</strong> {{ appointment.status }}</p>
 <a href="{% url 'edit_appointment' appointment.pk %}">Edit</a>
 <a href="{% url 'appointment_list' %}">Back to Appointments</a>
+</div>
 {% endblock %}
