@@ -129,66 +129,6 @@ W3C CSS Validator - was used to validate CSS
 ## Testing
 User Story Testing
 Testing Users Stories form (UX) Section
-EPIC: Superuser / Admin
-
-As a site Admin I can create, edit and delete recipes and comments so that I can manage the site content
-As a site Admin I can access the admin panel so that I can manage recipes and comments
-As a site Admin I can log out of the admin panel so that I can disconnect from the website
-This was tested by accessing the Django Admin Panel. By creating a Superuser we can access the Django Admin Panel where the administrator can perform all the CRUD functionalitis
-
-EPIC: User Interaction
-
-As a logged-in User I can write comments on recipes so that I can leave my feedback
-
-
-As a logged-in User I can like and unlike recipes so that I can mark which recipes I like
-
-
-As a User I can view the number of likes on recipes so that I can see which recipes are the most popular
-
-
-As a User I can view comments on recipes so that I can read other users opinions
-
-
-EPIC: User Recipes
-
-As a logged-in User I can post a recipes so that other users can see them
-
-
-2. As a User I can delete my recipes so that I can remove any unwanted recipes that I have made
-
-
-3. As a User I can edit recipes so that I can update any changes or mistakes to my recipes
-
-
-4. As a logged-in User I can upload an image along with my recipe so that other users can see what the dish looks like
-
-
-EPIC: Login/Register
-
-As a User I can register for an account so that I can interact with the site content
-
-
-As a User I can log in/out off my account if I wish so that I can connect or disconnect from the website
-
-
-3. As a User I can easily see if I'm logged-in or logged-out so that I can be sure what my status is
-
-
-
-
-EPIC: Navigation
-
-As a User I can easily navigate through the site so that I can view desired content
-
-
-As a User I can search the desirable recipe by keyword so that I can find the recipe I want faster
-
-
-3. As a User I can see the most loved recipes so that I can quickly find inspiration and see which recipes are most famous
-
-
-As a User I can see the most recent recipes so that I can keep up to date with the latest recipes
 
 
 ## Bugs and Issues
