@@ -3,6 +3,7 @@
 {% block title %}Appointments{% endblock %}
 
 {% block content %}
+<div class="card">
 <h1>Appointments</h1>
 <a href="{% url 'create_appointment' %}">Create Appointment</a>
 <ul>
@@ -14,4 +15,5 @@
     </li>
     {% endfor %}
 </ul>
+</div>
 {% endblock %}

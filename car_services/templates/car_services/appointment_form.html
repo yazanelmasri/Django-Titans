@@ -9,6 +9,7 @@ Create Appointment
 {% endblock %}
 
 {% block content %}
+<div class="card">
 <h1>
     {% if form.instance.pk %}
     Edit Appointment
@@ -71,4 +72,5 @@ Create Appointment
 </form>
 
 <p>Cancel and return to <a href="{% url 'appointment_list' %}">appointment list</a>.</p>
+</div>
 {% endblock %}

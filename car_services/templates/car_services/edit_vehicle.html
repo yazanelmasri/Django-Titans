@@ -3,6 +3,7 @@
 {% block title %}Edit Vehicle{% endblock %}
 
 {% block content %}
+<div class="card">
 <h1>Edit Vehicle</h1>
 <form method="post">
     {% csrf_token %}
@@ -10,4 +11,5 @@
     <button type="submit">Save</button>
 </form>
 <a href="{% url 'vehicle_detail' vehicle.pk %}">Back to Vehicle Details</a>
+</div>
 {% endblock %}
