@@ -46,7 +46,7 @@ UX
 - Given I have selected a service and a time slot, I should be able to proceed to payment.
 - I should be able to choose from multiple secure payment options (e.g., credit card, PayPal).
 
-### Epic:Confirmation
+### Epic: Confirmation
 - Given I have completed the payment, I should receive a confirmation email with all the booking details.
 - I should be able to view and manage my upcoming appointments through my account dashboard.
 
@@ -77,11 +77,11 @@ Mobile
 
 
 
-####Models
+#### Models
 *
 
 
-####Surface
+#### Surface
 Design
 
 
