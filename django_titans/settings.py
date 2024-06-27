@@ -38,7 +38,7 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.8000-yazanelmasr-djangotitan-fb5pdf38tv7.ws-eu114.gitpod.io",
+    "https://8000-yazanelmasr-djangotitan-j5jgpzl0ofy.ws-eu114.gitpod.io ",
     "https://*.herokuapp.com"
 ]
 
