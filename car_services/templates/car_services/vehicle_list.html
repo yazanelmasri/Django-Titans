@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Vehicles{% endblock %}
+
+{% block content %}
+<h1>Vehicles</h1>
+<a href="{% url 'create_vehicle' %}">Add Vehicle</a>
+<ul>
+    {% for vehicle in vehicles %}
+    <li>
+        <a href="{% url 'vehicle_detail' vehicle.pk %}">{{ vehicle.make }} {{ vehicle.model }} ({{ vehicle.year }})</a>
+        <a href="{% url 'edit_vehicle' vehicle.pk %}">Edit</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
