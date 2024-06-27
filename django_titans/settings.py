@@ -13,9 +13,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
+<<<<<<< HEAD
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
+=======
+import os
+>>>>>>> 0af2b2625ecc136ce7e1f61148c56e0b958a6967
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -69,7 +73,7 @@ ROOT_URLCONF = 'django_titans.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'car_services/templates/car_services/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
