@@ -1,13 +1,23 @@
 {% extends 'base.html' %}
 
-{% block title %}Create Appointment{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
-<h1>Create Appointment</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create</button>
-</form>
-<a href="{% url 'appointment_list' %}">Back to Appointments</a>
+<div>
+    <section id="hero-image">
+        <div id="search">
+            <h2 id="booking">Book an Appointment</h2>
+            <form method="get" action="/search">
+                <input type="text" id="service" name="service" placeholder="Get a date now" required>
+                <button type="submit">Search</button>
+            </form>
+            <form method="post" action="{% url 'appointment_create' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Book Now</button>
+            </form>
+            <a href="{% url 'appointment_list' %}">Back to Appointments</a>
+        </div>
+    </section>
+</div>
 {% endblock %}

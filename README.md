@@ -52,10 +52,10 @@ UX
 
 
 ## Scope
-###Features
+### Features
 *
 
-##Structure
+##S tructure
 *
 
 ## Wireframes
@@ -63,16 +63,22 @@ All wireframes were created used Balsamiq
 
 Wireframes for each device are linked here:
 
-Desktop
-(image)
+- Desktop
 
-Tablet
-(image)
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/bbee04fe-4e7d-4a4b-8347-eb1c39aed2f9)
 
-Mobile
-(image)
 
-####Database schema
+- Tablet
+
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/85d9fac5-dde8-4fa7-b10d-444c5ac53b0d)
+
+
+- Mobile
+
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/84cfb05a-9590-4cb6-88bd-abf947d437f1)
+
+
+#### Database schema
 ![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/05ea3b75-bf86-4ae3-9582-0bb055b4a08e)
 
 
@@ -90,8 +96,11 @@ Mobile
 
 
 
-#### Surface
-Design
+## Surface
+### Design
+### Chosen colours
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/7c4c66e8-b637-4298-bd25-707bb2b50495)
+
 
 
 ## Technologies Used
@@ -141,7 +150,15 @@ Testing Users Stories form (UX) Section
 
 
 ## Bugs and Issues
-*
+- Procfile error introduced a conflict preventing us from merging.
+  
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/efafe4c7-d99b-4edb-8b05-db686564495b)
+
+- Issue with deploymet on Heroku
+  
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/e521d787-600d-441f-9042-7448255eaa22)
+
+
 
 ## Deployment
 This project was deployed using Github and Heroku.
