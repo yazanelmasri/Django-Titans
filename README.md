@@ -8,18 +8,18 @@ This is a full-stack framework project built using Django, Python, HTML and CSS.
 This platform is designed to provide a seamless and efficient way for users to book various car services. Whether you need routine maintenance, emergency repairs, or specialised services, our site connects you with trusted service providers in your area. Our goal is to create a functioning and responsive website, that allows users to post, comment and like or unlike recipes. This project has been built for educational purposes.
 
 ## Table of Contents
-UX
--User Stories
-Scope 
+- UX
+1. User Stories
+- Scope 
 -Features
-Structure
-Wireframes
-Database schema
-Surface
-Technologies Used
-Testing
-Deployment
-Credits
+- Structure
+- Wireframes
+- Database schema
+- Surface
+- Technologies Used
+- Testing
+- Deployment
+- Credits
 
 UX
 *
