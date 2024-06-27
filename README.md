@@ -25,33 +25,34 @@ UX
 *
 
 ## User Stories
-Epic: Registration/Login
-Given I am a new user, I should be able to create an account with my email and password.
-Given I am a returning user, I should be able to log in with my email and password.
 
-Epic: Search for Services
-Given I am logged in, I should be able to search for specific car services (e.g., oil change, brake repair).
-I should be able to filter service providers based on location, ratings, and availability.
+### Epic: Registration/Login
+- Given I am a new user, I should be able to create an account with my email and password.
+- Given I am a returning user, I should be able to log in with my email and password.
 
-Epic: Select a Service Provider
-Given I have searched for a service, I should see a list of available service providers.
-I should be able to view detailed information about each provider, including ratings, reviews, and available time slots.
+### Epic: Search for Services
+- Given I am logged in, I should be able to search for specific car services (e.g., oil change, brake repair).
+- I should be able to filter service providers based on location, ratings, and availability.
 
-Epic: Book a Service
-Given I have selected a service provider, I should be able to choose a convenient date and time for the service.
-I should be able to provide any necessary details about my car and the service required.
+### Epic: Select a Service Provider
+- Given I have searched for a service, I should see a list of available service providers.
+- I should be able to view detailed information about each provider, including ratings, reviews, and available time slots.
 
-Epic: Payment
-Given I have selected a service and a time slot, I should be able to proceed to payment.
-I should be able to choose from multiple secure payment options (e.g., credit card, PayPal).
+### Epic: Book a Service
+- Given I have selected a service provider, I should be able to choose a convenient date and time for the service.
+- I should be able to provide any necessary details about my car and the service required.
 
-Epic:Confirmation
-Given I have completed the payment, I should receive a confirmation email with all the booking details.
-I should be able to view and manage my upcoming appointments through my account dashboard.
+### Epic: Payment
+- Given I have selected a service and a time slot, I should be able to proceed to payment.
+- I should be able to choose from multiple secure payment options (e.g., credit card, PayPal).
+
+### Epic:Confirmation
+- Given I have completed the payment, I should receive a confirmation email with all the booking details.
+- I should be able to view and manage my upcoming appointments through my account dashboard.
 
 
 ## Scope
-Features
+###Features
 *
 
 ##Structure
