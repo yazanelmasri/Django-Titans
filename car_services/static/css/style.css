@@ -87,8 +87,9 @@ main {
     background-size: cover;
     width: 100%;
     height: 100vh; 
-    z-index: -99;
+    z-index: 99; /* Adjust or remove z-index */
 }
+
 
 #search {
     background-color: rgba(255, 255, 255, 0.8);
