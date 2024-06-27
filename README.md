@@ -11,7 +11,7 @@ This platform is designed to provide a seamless and efficient way for users to b
 - UX
     1. User Stories
 - Scope 
--Features
+    1. Features
 - Structure
 - Wireframes
 - Database schema
