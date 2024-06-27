@@ -5,18 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Service Booking</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../static/css/style.css">
 </head>
 
 <body>
     <header>
         <div class="container">
+            <img src="../../static/images/Logo.png" alt="logo" id="logo">
             <h1>Car Service Booking</h1>
             <nav>
                 <ul>
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./services.html">Services</a></li>
-                    <li><a href="./team.html">Our team</a></li>
+                    <li><a href="./base.html">Our team</a></li>
                     <li><a href="./signup.html">login/signup</a></li>
 
                 </ul>
@@ -25,25 +26,16 @@
     </header>
 
     <main>
-        <section id="search">
-            <h2>BOOK AN APPOINTMENT </h2>
+        <section id="HeroImage">
+        <div id="search">
+            <h2 id="Booking">BOOK AN APPOINTMENT</h2>
             <form action="/search" method="get">
                 <input type="text" id="service" name="service" placeholder="Get a date now" required>
-
-                <button type="submit">Search</button>
+                <button type="submit">Book Now</button>
             </form>
-            {% extends 'base.html' %}
-
-            {% block title %}Home{% endblock %}
-
-            {% block content %}
-            <h1>Welcome to Car Services</h1>
-            <p>Your one-stop solution for all car services.</p>
-            {% endblock %}
-
-        </section>
+        </div>
+    </section>
     </main>
-
     <footer>
         <div class="container">
             <p>&copy; 2024 Car Service Booking. All rights reserved.</p>
@@ -51,5 +43,4 @@
         </div>
     </footer>
 </body>
-
 </html>

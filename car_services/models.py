@@ -6,6 +6,7 @@ from django.core.exceptions import ValidationError
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 
+# ServiceCategoryChoices TextChoices Enum
 class ServiceCategoryChoices(models.TextChoices):
     MAINTENANCE = 'Maintenance', 'Maintenance'
     REPAIRS = 'Repairs', 'Repairs'
@@ -13,6 +14,7 @@ class ServiceCategoryChoices(models.TextChoices):
     INSTALLATIONS = 'Installations', 'Installations'
     CUSTOM = 'Custom', 'Custom'
 
+# ServiceTypeChoices TextChoices Enum
 class ServiceTypeChoices(models.TextChoices):
     OIL_CHANGE = 'Oil Change', 'Oil Change (60 minutes)'
     TIRE_ROTATION = 'Tire Rotation', 'Tire Rotation (45 minutes)'
@@ -25,6 +27,7 @@ class ServiceTypeChoices(models.TextChoices):
     WINDOW_TINTING = 'Window Tinting', 'Window Tinting (90 minutes)'
     CUSTOM = 'Custom', 'Custom (specify service details in description box!)'
 
+# Service Model
 class Service(models.Model):
     category = models.CharField(
         max_length=100,
@@ -47,15 +50,17 @@ class Service(models.Model):
     def __str__(self):
         return f"{self.category} - {self.type}" + (f" ({self.duration} minutes)" if self.duration else "")
 
+# Vehicle Model
 class Vehicle(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='vehicles')
     make = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
-    year = models.IntegerField()
+    year = models.PositiveIntegerField()
 
     def __str__(self):
         return f"{self.make} {self.model} ({self.year})"
 
+# Appointment Model
 class Appointment(models.Model):
     STATUS_CHOICES = [
         ('CONFIRMED', 'Confirmed'),
@@ -76,7 +81,7 @@ class Appointment(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"Appointment for {self.user.username} on {self.appointment_date}"
+        return f"Appointment for {self.user.username} on {self.appointment_date.strftime('%Y-%m-%d %H:%M')}"
 
 # Signal to validate custom services before saving
 @receiver(pre_save, sender=Appointment)

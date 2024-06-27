@@ -1,34 +1,37 @@
 from django import forms
-from.models import Appointment, Vehicle, Service
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django import forms
+from django.contrib.auth.models import User
+from .models import Vehicle, Appointment
 
-class DynamicServiceChoiceField(forms.ModelChoiceField):
-    def __init__(self, *args, **kwargs):
-        self.vehicle = kwargs.pop('vehicle', None)
-        super(DynamicServiceChoiceField, self).__init__(*args, **kwargs)
-        if self.vehicle:
-            self.queryset = Service.objects.filter(category=self.vehicle.category)
+class SignupForm(UserCreationForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
+    password2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirm Password'}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}))
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}))
+
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'password1',
+            'password2',
+            'email',
+            'first_name',
+            'last_name',
+        )
+
+class VehicleForm(forms.ModelForm):
+
+    class Meta:
+        model = Vehicle
+        fields = ('make', 'model', 'year')
 
 class AppointmentForm(forms.ModelForm):
-    service = DynamicServiceChoiceField(queryset=Service.objects.none(), required=False)
 
     class Meta:
         model = Appointment
-        fields = ['vehicle', 'service', 'status', 'appointment_date', 'description']
-
-    def __init__(self, *args, **kwargs):
-        super(AppointmentForm, self).__init__(*args, **kwargs)
-        self.fields['service'].widget.attrs.update({'class': 'form-control'})
-        # Update the queryset dynamically based on the selected vehicle
-        if self.instance.pk:
-            self.fields['service'].queryset = Service.objects.filter(category=self.instance.vehicle.category)
-
-    def clean(self):
-        cleaned_data = super(AppointmentForm, self).clean()
-        service = cleaned_data.get('service')
-        description = cleaned_data.get('description')
-
-        if service and service.type == Service.ServiceTypeChoices.CUSTOM and not description:
-            self._errors['description'] = self.error_class(['Please enter service details for custom appointment.'])
-            del cleaned_data['description']
-        return cleaned_data
-
+        fields = ('vehicle', 'service', 'appointment_date', 'description')
