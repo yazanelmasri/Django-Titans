@@ -158,6 +158,11 @@ Testing Users Stories form (UX) Section
   
 ![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/e521d787-600d-441f-9042-7448255eaa22)
 
+- we forgot to add some packages to the requirements.txt file
+
+  ![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/5965869d-05c4-4f1a-9e33-17eb72b76dde)
+
+
 
 
 ## Deployment
