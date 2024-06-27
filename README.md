@@ -145,15 +145,11 @@ Summernote Used to add a text area field to the admin setup to enable a list of 
 
 Balsamiq - was used to create site wireframes.
 
-*Am I Responsive - to check if the site is responsive on different screen sizes.
-
-*Pixabay and Unsplash - were used for all the images
-
 W3C Markup Validator - was used to validate HTML
 
 W3C CSS Validator - was used to validate CSS
 
-*Coolors - to make color palette
+Coolors - to make color palette
 
 ## Testing
 User Story Testing
