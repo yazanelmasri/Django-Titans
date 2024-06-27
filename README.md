@@ -141,7 +141,9 @@ Testing Users Stories form (UX) Section
 
 
 ## Bugs and Issues
-*
+- Procfile error introduced a conflict preventing us from merging.
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/efafe4c7-d99b-4edb-8b05-db686564495b)
+
 
 ## Deployment
 This project was deployed using Github and Heroku.
