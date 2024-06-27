@@ -64,7 +64,7 @@ All wireframes were created used Balsamiq
 Wireframes for each device are linked here:
 
 Desktop
-![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/bbee04fe-4e7d-4a4b-8347-eb1c39aed2f9)
+- ![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/bbee04fe-4e7d-4a4b-8347-eb1c39aed2f9)
 
 
 Tablet
