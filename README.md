@@ -68,14 +68,14 @@ Desktop
 
 
 Tablet
-![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/85d9fac5-dde8-4fa7-b10d-444c5ac53b0d)
+- ![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/85d9fac5-dde8-4fa7-b10d-444c5ac53b0d)
 
 
 Mobile
-![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/84cfb05a-9590-4cb6-88bd-abf947d437f1)
+ - ![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/84cfb05a-9590-4cb6-88bd-abf947d437f1)
 
 
-####Database schema
+#### Database schema
 ![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/05ea3b75-bf86-4ae3-9582-0bb055b4a08e)
 
 
@@ -146,6 +146,10 @@ Testing Users Stories form (UX) Section
 ## Bugs and Issues
 - Procfile error introduced a conflict preventing us from merging.
 ![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/efafe4c7-d99b-4edb-8b05-db686564495b)
+
+- Issue with deploymet on Heroku
+  ![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/e521d787-600d-441f-9042-7448255eaa22)
+
 
 
 ## Deployment
