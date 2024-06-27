@@ -78,8 +78,6 @@ Mobile
 
 
 #### Models
-![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/22727bdc-e35c-4bf0-a580-5510eda319bb)
-![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/6e508b6e-6734-426c-a692-05bae722b7bd)
 ![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/e9a7a5d8-427c-4638-b2cb-3d59da32ad2e)
 ![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/67353026-93cc-4e7e-823d-5dba4c4f9ea5)
 ![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/e46480d6-ffaf-422d-9b22-90c8392c5ba0)
