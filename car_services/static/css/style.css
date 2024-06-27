@@ -66,9 +66,10 @@ header h1 {
 
 .card {
     background-color: white;
-    height: 50%;
-    width: 80%;
-    margin: 10px;
+    height: fit-content;
+    width: 40vw;
+    margin: auto;
+    margin-top: 40px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -113,7 +114,7 @@ header h1 {
     text-transform: scale(0,5);
     transition: all 1s ease;
     text-decoration: none;
-
+}
 .card button {
     margin-top: auto;
     background-color: rgb(107, 78, 3);
