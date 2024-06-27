@@ -1,7 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserChangeForm
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.views import View
@@ -9,7 +7,7 @@ from django.views.generic import TemplateView, UpdateView
 from django.utils.decorators import method_decorator
 from django.contrib.admin.views.decorators import staff_member_required
 from .models import Appointment, Service, Vehicle, ServiceTypeChoices, ServiceCategoryChoices
-from .forms import VehicleForm, AppointmentForm, SignupForm, ServiceForm
+from .forms import VehicleForm, AppointmentForm, SignupForm, ServiceForm, CustomUserChangeForm
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
@@ -28,6 +26,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from .models import Service
 from .forms import ServiceForm
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 
 """
 Account Views
@@ -37,13 +37,39 @@ class ProfileView(LoginRequiredMixin, TemplateView):
     template_name = 'profile.html'
 
 class ProfileEditView(LoginRequiredMixin, UpdateView):
-    form_class = UserChangeForm
+    form_class = CustomUserChangeForm
+    password_form_class = PasswordChangeForm
     template_name = 'profile_edit.html'
     success_url = reverse_lazy('profile')
 
     def get_object(self):
         return self.request.user
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if 'password_form' not in context:
+            context['password_form'] = self.password_form_class(self.request.user)
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        password_form = self.password_form_class(self.object, request.POST)
+        if form.is_valid() and password_form.is_valid():
+            return self.form_valid(form, password_form)
+        else:
+            return self.form_invalid(form, password_form)
+
+    def form_valid(self, form, password_form):
+        self.object = form.save()
+        password_form.save()
+        update_session_auth_hash(self.request, self.object)  # To keep the user logged in after password change
+        return redirect(self.get_success_url())
+
+    def form_invalid(self, form, password_form):
+        return self.render_to_response(
+            self.get_context_data(form=form, password_form=password_form)
+        )
 class DeleteAccountView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         user = request.user
@@ -159,6 +185,13 @@ class VehicleDeleteView(View):
         if vehicle.user == request.user:
             vehicle.delete()
         return redirect('vehicle_list')
+    
+class VehicleDetailView(View):
+    template_name = 'vehicle_detail.html'
+
+    def get(self, request, pk):
+        vehicle = get_object_or_404(Vehicle, pk=pk)
+        return render(request, self.template_name, {'vehicle': vehicle})
 
 """
 Appointment Views
@@ -235,7 +268,7 @@ def service_list(request):
     services = Service.objects.all()
     return render(request, 'service_list.html', {'services': services})
 
-@staff_member_required
+@login_required
 def service_create(request):
     if request.method == 'POST':
         form = ServiceForm(request.POST)

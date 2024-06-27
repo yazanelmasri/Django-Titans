@@ -10,14 +10,16 @@ urlpatterns = [
     path('password_reset_done/', auth_views.PasswordResetDoneView.as_view(template_name='password_reset_done.html'), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='password_reset_confirm.html'), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'), name='password_reset_complete'),
-    path('signup/', views.SignupView.as_view(), name='signup'),
-    path('profile/', views.ProfileView.as_view(), name='profile'),
+    path('signup/', views.SignupView.as_view(), name='signup'),#pass
+    path('profile/', views.ProfileView.as_view(), name='profile'),#pass
+    path('profile/edit/', views.ProfileEditView.as_view(), name='profile_edit'), 
     
     path('vehicles/', views.VehicleListView.as_view(), name='vehicle_list'),
     path('vehicles/new/', views.VehicleCreateView.as_view(), name='vehicle_create'),
     path('vehicles/<int:pk>/edit/', views.VehicleUpdateView.as_view(), name='vehicle_update'),
     path('vehicles/<int:pk>/delete/', views.VehicleDeleteView.as_view(), name='vehicle_delete'),
-    
+    path('vehicles/<int:pk>/', views.VehicleDetailView.as_view(), name='vehicle_detail'),
+
     path('appointments/', views.AppointmentListView.as_view(), name='appointment_list'),
     path('appointments/new/', views.CreateAppointmentView.as_view(), name='create_appointment'),
     path('appointments/<int:pk>/edit/', views.UpdateAppointmentView.as_view(), name='appointment_update'),
