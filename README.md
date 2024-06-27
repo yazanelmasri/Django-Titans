@@ -9,7 +9,7 @@ This platform is designed to provide a seamless and efficient way for users to b
 
 ## Table of Contents
 - UX
-1. User Stories
+    1. User Stories
 - Scope 
 -Features
 - Structure
