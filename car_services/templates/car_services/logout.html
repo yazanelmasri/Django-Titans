@@ -3,9 +3,11 @@
 {% block title %}Logout{% endblock %}
 
 {% block content %}
+<div class="card">
 <h1>Logout</h1>
 <form method="post" action="{% url 'logout' %}">
     {% csrf_token %}
     <button type="submit">Logout</button>
 </form>
+</div>
 {% endblock %}

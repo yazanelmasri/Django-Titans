@@ -3,9 +3,11 @@
 {% block title %}Service Details{% endblock %}
 
 {% block content %}
+<div class="card">
 <h1>Service Details</h1>
 <p><strong>Category:</strong> {{ service.category }}</p>
 <p><strong>Type:</strong> {{ service.type }}</p>
 <p><strong>Duration:</strong> {{ service.duration }} minutes</p>
 <a href="{% url 'service_list' %}">Back to Services</a>
+</div>
 {% endblock %}
