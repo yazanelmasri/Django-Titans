@@ -96,8 +96,11 @@ Wireframes for each device are linked here:
 
 
 
-#### Surface
-Design
+## Surface
+### Design
+### Chosen colours
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/7c4c66e8-b637-4298-bd25-707bb2b50495)
+
 
 
 ## Technologies Used
