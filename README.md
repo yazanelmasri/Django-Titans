@@ -1,131 +1,170 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome Noora235 Ibrahim,
+# Django Titans
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+This is a full-stack framework project built using Django, Python, HTML and CSS. Welcome to our Car Service Booking Site! 
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+## About
 
-## Gitpod Reminders
+This platform is designed to provide a seamless and efficient way for users to book various car services. Whether you need routine maintenance, emergency repairs, or specialised services, our site connects you with trusted service providers in your area. Our goal is to create a functioning and responsive website, that allows users to post, comment and like or unlike recipes. This project has been built for educational purposes.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Table of Contents
+UX
+-User Stories
+Scope 
+-Features
+Structure
+Wireframes
+Database schema
+Surface
+Technologies Used
+Testing
+Deployment
+Credits
 
-`python3 -m http.server`
+UX
+*
 
-A blue button should appear to click: _Make Public_,
+## User Stories
 
-Another blue button should appear to click: _Open Browser_.
+### Epic: Registration/Login
+- Given I am a new user, I should be able to create an account with my email and password.
+- Given I am a returning user, I should be able to log in with my email and password.
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+### Epic: Search for Services
+- Given I am logged in, I should be able to search for specific car services (e.g., oil change, brake repair).
+- I should be able to filter service providers based on location, ratings, and availability.
 
-A blue button should appear to click: _Make Public_,
+### Epic: Select a Service Provider
+- Given I have searched for a service, I should see a list of available service providers.
+- I should be able to view detailed information about each provider, including ratings, reviews, and available time slots.
 
-Another blue button should appear to click: _Open Browser_.
+### Epic: Book a Service
+- Given I have selected a service provider, I should be able to choose a convenient date and time for the service.
+- I should be able to provide any necessary details about my car and the service required.
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Epic: Payment
+- Given I have selected a service and a time slot, I should be able to proceed to payment.
+- I should be able to choose from multiple secure payment options (e.g., credit card, PayPal).
 
-To log into the Heroku toolbelt CLI:
+### Epic: Confirmation
+- Given I have completed the payment, I should receive a confirmation email with all the booking details.
+- I should be able to view and manage my upcoming appointments through my account dashboard.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+## Scope
+###Features
+*
 
-### Connecting your Mongo database
+##Structure
+*
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+## Wireframes
+All wireframes were created used Balsamiq
 
-------
+Wireframes for each device are linked here:
 
-## Release History
+Desktop
+(image)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+Tablet
+(image)
 
-**June 18, 2024,** Add Mongo back into template
+Mobile
+(image)
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+####Database schema
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/05ea3b75-bf86-4ae3-9582-0bb055b4a08e)
 
-**May 28 2024:** Fix Mongo and Links installs
 
-**April 26 2024:** Update node version to 16
 
-**September 20 2023:** Update Python version to 3.9.17.
+#### Models
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/22727bdc-e35c-4bf0-a580-5510eda319bb)
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/6e508b6e-6734-426c-a692-05bae722b7bd)
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/e9a7a5d8-427c-4638-b2cb-3d59da32ad2e)
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/67353026-93cc-4e7e-823d-5dba4c4f9ea5)
+![image](https://github.com/yazanelmasri/Django-Titans/assets/165275718/e46480d6-ffaf-422d-9b22-90c8392c5ba0)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+#### Surface
+Design
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## Technologies Used
+Languages
+- HTML5
+- CSS3
+- Python
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Frameworks, Libraries & Programs Used
+GitHub - Holds the repository of my project, GitHub connects to GitPod and Heroku.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+GitPod – Connected to GitHub, GitPod hosted the coding space, allowing the project to be built and then committed to the GitHub repository.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+Heroku - Connected to the GitHub repository, Heroku is a cloud application platform used to deploy this project so the backend language can be utilised/tested.
 
-------
+Django - This framework was used to build the foundations of this project
 
-## FAQ about the uptime script
+Gunicorn - Gunicorn is a pure-Python HTTP server for WSGI applications.
 
-**Why have you added this script?**
+*Dj Database URL - This allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+*Bootstrap - Used to quickly add design to my website, Bootstrap focuses on mobile first design meaning this website is responsive across multiple devices ans screen sizes.
 
-**How will this affect me?**
+Cloudinary - Used to store images online for the recipe posts.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+Summernote Used to add a text area field to the admin setup to enable a list of ingredients and method steps.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+*Google Fonts - provide fonts for the website.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+*Font Awesome -was used for icons.
 
-**So….?**
+Balsamiq - was used to create site wireframes.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+*Am I Responsive - to check if the site is responsive on different screen sizes.
 
-**Can I opt out?**
+*Pixabay and Unsplash - were used for all the images
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+W3C Markup Validator - was used to validate HTML
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+W3C CSS Validator - was used to validate CSS
 
-**Anything more?**
+*Coolors - to make color palette
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+## Testing
+User Story Testing
+Testing Users Stories form (UX) Section
 
----
 
-Happy coding!
+## Bugs and Issues
+*
+
+## Deployment
+This project was deployed using Github and Heroku.
+
+Github
+To create a new repository I took the following steps:
+
+Logged into Github.
+Clicked over to the ‘repositories’ section.
+Clicked the green ‘new’ button. This takes you to the create new repository page.
+Once there under ‘repository template’ I chose the code institute template from the dropdown menu.
+I input a repository name then clicked the green ‘create repository button’ at the bottom of the page.
+Once created I opened the new repository and clicked the green ‘Gitpod’ button to create a workspace in Gitpod for editing.
+Django and Heroku
+To get the Django framework installed and set up I followed the Code institutes Django Blog cheatsheet
+
+## Credits
+*
+
+## Media
+*
+
+## Acknowledgements
+*
