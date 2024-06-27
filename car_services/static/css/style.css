@@ -133,8 +133,8 @@ footer a:hover {
 }
 
 main {
-    flex: 1;
-    display: flex;
+position: relative;
+margin: auto;
     justify-content: center;
     align-items: center;
     text-align: center;
