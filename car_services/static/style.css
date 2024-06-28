@@ -176,7 +176,7 @@ main {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: url("../../static/images/HeroImage.png") no-repeat center;
+    background: url("../staticfiles/car_services/images/HeroImage.png") no-repeat center;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
