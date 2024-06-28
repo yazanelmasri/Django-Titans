@@ -1,33 +1,18 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.urls import reverse_lazy
-from django.views import View
 from django.views.generic import TemplateView, UpdateView
 from django.utils.decorators import method_decorator
 from django.contrib.admin.views.decorators import staff_member_required
-from .models import Appointment, Service, Vehicle, ServiceTypeChoices, ServiceCategoryChoices
+from .models import Appointment, Service, Vehicle
 from .forms import VehicleForm, AppointmentForm, SignupForm, ServiceForm, CustomUserChangeForm
-from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserChangeForm
-from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import TemplateView, UpdateView
-from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.contrib.admin.views.decorators import staff_member_required
-from .models import Appointment, Service, Vehicle, ServiceTypeChoices, ServiceCategoryChoices
-from .forms import VehicleForm, AppointmentForm, SignupForm
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.decorators import login_required
-from django.contrib.admin.views.decorators import staff_member_required
-from .models import Service
-from .forms import ServiceForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.views import LoginView
 
 """
 Account Views
@@ -63,13 +48,14 @@ class ProfileEditView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form, password_form):
         self.object = form.save()
         password_form.save()
-        update_session_auth_hash(self.request, self.object)  # To keep the user logged in after password change
+        update_session_auth_hash(self.request, self.object)
         return redirect(self.get_success_url())
 
     def form_invalid(self, form, password_form):
         return self.render_to_response(
             self.get_context_data(form=form, password_form=password_form)
         )
+
 class DeleteAccountView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         user = request.user
@@ -98,6 +84,21 @@ class SignupView(View):
         if user is not None:
             login(request, user)
 
+
+class CustomLoginView(LoginView):
+    template_name = 'login.html'
+    success_url = reverse_lazy('appointment_list')
+
+
+class LogoutView(View):
+    def get(self, request):
+        logout(request)
+        return redirect('login')  # Redirect to the login page
+
+    def post(self, request):
+        # Handle POST requests if needed, although typically logout is done via GET
+        return self.get(request)
+
 """
 General Views
 """
@@ -107,26 +108,6 @@ class IndexView(View):
 
     def get(self, request):
         return render(request, self.template_name)
-
-class LoginView(View):
-    template_name = 'login.html'
-
-    def get(self, request):
-        return render(request, self.template_name)
-
-    def post(self, request):
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('appointment_list')
-        return render(request, self.template_name, {'error': 'Invalid username or password.'})
-
-class LogoutView(LoginRequiredMixin, View):
-    def get(self, request):
-        logout(request)
-        return redirect('/')
 
 """
 Vehicle Views
@@ -185,7 +166,7 @@ class VehicleDeleteView(View):
         if vehicle.user == request.user:
             vehicle.delete()
         return redirect('vehicle_list')
-    
+
 class VehicleDetailView(View):
     template_name = 'vehicle_detail.html'
 
