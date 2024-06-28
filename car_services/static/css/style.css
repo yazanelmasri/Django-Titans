@@ -140,6 +140,7 @@ header nav ul li a:hover {
 
 .card button:hover {
     background-color: hsl(95, 47%, 74%);
+    color: #333;
   
 }
 
