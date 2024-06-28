@@ -231,6 +231,14 @@ class DeleteAppointmentView(View):
         if appointment.user == request.user:
             appointment.delete()
         return redirect('appointment_list')
+    
+@method_decorator(login_required, name='dispatch')
+class AppointmentDetailView(View):
+    template_name = 'appointment_detail.html'
+
+    def get(self, request, pk):
+        appointment = get_object_or_404(Appointment, pk=pk)
+        return render(request, self.template_name, {'appointment': appointment})
 
 @method_decorator(staff_member_required, name='dispatch')
 class AllAppointmentsView(View):
@@ -279,3 +287,8 @@ def service_delete(request, pk):
         service.delete()
         return redirect('service_list')
     return render(request, 'service_confirm_delete.html', {'service': service})
+
+@staff_member_required
+def service_detail(request, pk):
+    service = get_object_or_404(Service, pk=pk)
+    return render(request, 'car_services/service_detail.html', {'service': service})
