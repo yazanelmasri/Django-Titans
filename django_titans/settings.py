@@ -34,12 +34,14 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
 '8000-yazanelmasr-djangotitan-j5jgpzl0ofy.ws-eu114.gitpod.io',
+'8088-yazanelmasr-djangotitan-mpu3d8te4fb.ws-eu114.gitpod.io',
 '8000-yazanelmasr-djangotitan-y59ez12y5rh.ws-eu114.gitpod.io',
  '.herokuapp.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://8000-yazanelmasr-djangotitan-j5jgpzl0ofy.ws-eu114.gitpod.io",
+    'https://8088-yazanelmasr-djangotitan-mpu3d8te4fb.ws-eu114.gitpod.io',
     "https://*.herokuapp.com"
 ]
 
