@@ -35,11 +35,13 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '127.0.0.1',
 '8000-yazanelmasr-djangotitan-j5jgpzl0ofy.ws-eu114.gitpod.io',
+'8089-yazanelmasr-djangotitan-mpu3d8te4fb.ws-eu114.gitpod.io',
  '.herokuapp.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.8000-yazanelmasr-djangotitan-fb5pdf38tv7.ws-eu114.gitpod.io",
+    'http://8089-yazanelmasr-djangotitan-mpu3d8te4fb.ws-eu114.gitpod.io'
     "https://*.herokuapp.com"
 ]
 
@@ -47,7 +49,6 @@ CSRF_TRUSTED_ORIGINS = [
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -138,7 +139,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
