@@ -26,29 +26,18 @@ UX
 
 ## User Stories
 
-### Epic: Registration/Login
 - Given I am a new user, I should be able to create an account with my email and password.
 - Given I am a returning user, I should be able to log in with my email and password.
-
-### Epic: Search for Services
 - Given I am logged in, I should be able to search for specific car services (e.g., oil change, brake repair).
 - I should be able to filter service providers based on location, ratings, and availability.
-
-### Epic: Select a Service Provider
 - Given I have searched for a service, I should see a list of available service providers.
-- I should be able to view detailed information about each provider, including ratings, reviews, and available time slots.
-
-### Epic: Book a Service
+*- I should be able to view detailed information about each provider, including ratings, reviews, and available time slots.
 - Given I have selected a service provider, I should be able to choose a convenient date and time for the service.
 - I should be able to provide any necessary details about my car and the service required.
-
-### Epic: Payment
-- Given I have selected a service and a time slot, I should be able to proceed to payment.
-- I should be able to choose from multiple secure payment options (e.g., credit card, PayPal).
-
-### Epic: Confirmation
-- Given I have completed the payment, I should receive a confirmation email with all the booking details.
 - I should be able to view and manage my upcoming appointments through my account dashboard.
+- As a user, I want to navigate the website easily so that I can find the information I need without difficulty.
+- As a service provider, I want to update the status of a service (e.g., in progress, completed) so that customers are informed about the progress.
+- As a service provider, I want to view upcoming service appointments so that I can plan my schedule.
 
 
 ## Scope
@@ -133,15 +122,11 @@ Gunicorn - Gunicorn is a pure-Python HTTP server for WSGI applications.
 
 *Dj Database URL - This allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
 
-*Bootstrap - Used to quickly add design to my website, Bootstrap focuses on mobile first design meaning this website is responsive across multiple devices ans screen sizes.
+Bootstrap - Used to quickly add design to my website, Bootstrap focuses on mobile first design meaning this website is responsive across multiple devices ans screen sizes.
 
 Cloudinary - Used to store images online for the recipe posts.
 
 Summernote Used to add a text area field to the admin setup to enable a list of ingredients and method steps.
-
-*Google Fonts - provide fonts for the website.
-
-*Font Awesome -was used for icons.
 
 Balsamiq - was used to create site wireframes.
 
@@ -186,19 +171,27 @@ Testing Users Stories form (UX) Section
 This project was deployed using Github and Heroku.
 
 Github
-To create a new repository I took the following steps:
+Here are the steps I took to create a new repository and set up Django with Heroku:
 
-Logged into Github.
-Clicked over to the ‘repositories’ section.
-Clicked the green ‘new’ button. This takes you to the create new repository page.
-Once there under ‘repository template’ I chose the code institute template from the dropdown menu.
-I input a repository name then clicked the green ‘create repository button’ at the bottom of the page.
-Once created I opened the new repository and clicked the green ‘Gitpod’ button to create a workspace in Gitpod for editing.
-Django and Heroku
-To get the Django framework installed and set up I followed the Code institutes Django Blog cheatsheet
+- Logged into GitHub.
+- Navigated to the ‘repositories’ section.
+- Clicked the green ‘new’ button to create a new repository.
+- On the create new repository page, selected the Code Institute template from the ‘repository template’ dropdown menu.
+- Entered a repository name and clicked the green ‘create repository’ button at the bottom of the page.
+- After creating the repository, opened it and clicked the green ‘Gitpod’ button to create a workspace in Gitpod for editing.
+
+#### Django and Heroku Setup
+- To install and set up the Django framework, I followed the steps outlined in the Code Institute Django Blog cheatsheet.
 
 ## Credits
-*
+- Django blog resources from Code Institute LMS.
+- Additional clarification from Django projects on YouTube.
+- Bug solutions from Stack Overflow.
+- User persona and user stories generated using founderpal.ai.
+- Support from the cohort.
+- Book cover details from Waterstones Website.
+- Icons from Font Awesome.
+- Fonts from Google Fonts.
 
 ## Media
 *
