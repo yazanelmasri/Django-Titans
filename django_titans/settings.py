@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-pntc&nvk+(g#i8tfc=whdudx__uga5-0w0s_^zdgyq4i-#1)!-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -49,7 +49,6 @@ CSRF_TRUSTED_ORIGINS = [
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
