@@ -12,6 +12,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.views import LoginView
 
 """
 Account Views
@@ -47,7 +48,7 @@ class ProfileEditView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form, password_form):
         self.object = form.save()
         password_form.save()
-        update_session_auth_hash(self.request, self.object)  # To keep the user logged in after password change
+        update_session_auth_hash(self.request, self.object)
         return redirect(self.get_success_url())
 
     def form_invalid(self, form, password_form):
@@ -83,25 +84,20 @@ class SignupView(View):
         if user is not None:
             login(request, user)
 
-class LoginView(View):
+
+class CustomLoginView(LoginView):
     template_name = 'login.html'
+    success_url = reverse_lazy('appointment_list')
 
-    def get(self, request):
-        return render(request, self.template_name)
 
-    def post(self, request):
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('appointment_list')
-        return render(request, self.template_name, {'error': 'Invalid username or password.'})
-
-class LogoutView(LoginRequiredMixin, View):
+class LogoutView(View):
     def get(self, request):
         logout(request)
-        return redirect('/')
+        return redirect('login')  # Redirect to the login page
+
+    def post(self, request):
+        # Handle POST requests if needed, although typically logout is done via GET
+        return self.get(request)
 
 """
 General Views
