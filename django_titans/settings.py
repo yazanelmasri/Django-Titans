@@ -29,19 +29,21 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'django-insecure-pntc&nvk+(g#i8tfc=whdudx__uga5-0w0s_^zdgyq4i-#1)!-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
 '8000-yazanelmasr-djangotitan-j5jgpzl0ofy.ws-eu114.gitpod.io',
 '8088-yazanelmasr-djangotitan-mpu3d8te4fb.ws-eu114.gitpod.io',
 '8000-yazanelmasr-djangotitan-y59ez12y5rh.ws-eu114.gitpod.io',
+'8089-yazanelmasr-djangotitan-mpu3d8te4fb.ws-eu114.gitpod.io',
  '.herokuapp.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://8000-yazanelmasr-djangotitan-j5jgpzl0ofy.ws-eu114.gitpod.io",
     'https://8088-yazanelmasr-djangotitan-mpu3d8te4fb.ws-eu114.gitpod.io',
+    'https://8089-yazanelmasr-djangotitan-mpu3d8te4fb.ws-eu114.gitpod.io',
     "https://*.herokuapp.com"
 ]
 
@@ -139,10 +141,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    #os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'car_services', 'static'),
 ]
 
