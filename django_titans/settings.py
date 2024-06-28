@@ -14,9 +14,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-#import dj_database_url
-#if os.path.isfile('env.py'):
-#    import env
+import dj_database_url
+if os.path.isfile('env.py'):
+    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,7 +38,7 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.8000-yazanelmasr-djangotitan-fb5pdf38tv7.ws-eu114.gitpod.io",
+    "https://8000-yazanelmasr-djangotitan-j5jgpzl0ofy.ws-eu114.gitpod.io",
     "https://*.herokuapp.com"
 ]
 
@@ -89,17 +89,17 @@ WSGI_APPLICATION = 'django_titans.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.sqlite3',
-         'NAME': BASE_DIR / 'db.sqlite3',
-     }
- }
+#DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
-# DATABASES = {
-#'default':
-#dj_database_url.parse(os.environ.get("DATABASE_URL"))
-#}
+DATABASES = {
+'default':
+dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
 
 
 # Password validation
@@ -143,5 +143,3 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# settings.py
-LOGIN_REDIRECT_URL = 'appointment_list'
