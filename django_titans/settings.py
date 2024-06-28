@@ -14,13 +14,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-#import dj_database_url
-#if os.path.isfile('env.py'):
-#    import env
+import dj_database_url
+if os.path.isfile('env.py'):
+    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+#BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -29,17 +29,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pntc&nvk+(g#i8tfc=whdudx__uga5-0w0s_^zdgyq4i-#1)!-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
 '8000-yazanelmasr-djangotitan-j5jgpzl0ofy.ws-eu114.gitpod.io',
+'8088-yazanelmasr-djangotitan-mpu3d8te4fb.ws-eu114.gitpod.io',
 '8000-yazanelmasr-djangotitan-y59ez12y5rh.ws-eu114.gitpod.io',
+'8089-yazanelmasr-djangotitan-mpu3d8te4fb.ws-eu114.gitpod.io',
  '.herokuapp.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.8000-yazanelmasr-djangotitan-fb5pdf38tv7.ws-eu114.gitpod.io",
+    "https://8000-yazanelmasr-djangotitan-j5jgpzl0ofy.ws-eu114.gitpod.io",
+    'https://8088-yazanelmasr-djangotitan-mpu3d8te4fb.ws-eu114.gitpod.io',
+    'https://8089-yazanelmasr-djangotitan-mpu3d8te4fb.ws-eu114.gitpod.io',
     "https://*.herokuapp.com"
 ]
 
@@ -58,6 +62,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -90,17 +95,17 @@ WSGI_APPLICATION = 'django_titans.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.sqlite3',
-         'NAME': BASE_DIR / 'db.sqlite3',
-     }
- }
+#DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
-# DATABASES = {
-#'default':
-#dj_database_url.parse(os.environ.get("DATABASE_URL"))
-#}
+DATABASES = {
+'default':
+dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
 
 
 # Password validation
@@ -137,9 +142,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+# Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# This directory should include additional static file locations (if any)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# settings.py
+LOGIN_REDIRECT_URL = 'appointment_list'
+LOGOUT_REDIRECT_URL = ''

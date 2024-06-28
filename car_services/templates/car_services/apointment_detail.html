@@ -1,0 +1,15 @@
+<!-- appointment_detail.html -->
+{% extends "base.html" %}
+
+{% block title %}Appointment Detail{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Appointment #{{ appointment.pk }}</h1>
+    <p>Service: {{ appointment.service }}</p>
+    <p>Date: {{ appointment.appointment_date }}</p>
+    <p>Details: {{ appointment.details }}</p>
+    <a href="{% url 'edit_appointment' appointment.pk %}">Edit</a>
+    <a href="{% url 'delete_appointment' appointment.pk %}">Delete</a>
+</div>
+{% endblock %}

@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Vehicle, Appointment, Service
+from .models import Service, ServiceCategoryChoices
+
 
 from django import forms
 from django.contrib.auth.models import User
@@ -57,11 +59,6 @@ class AppointmentForm(forms.ModelForm):
         model = Appointment
         fields = ('vehicle', 'service', 'appointment_date', 'description')
 
-# forms.py
-
-from django import forms
-from .models import Service, ServiceCategoryChoices, ServiceTypeChoices
-
 class ServiceForm(forms.ModelForm):
     class Meta:
         model = Service
@@ -75,6 +72,5 @@ class ServiceForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         
-        # Set choices dynamically for category and type fields
+        # Set choices dynamically for category field
         self.fields['category'].choices = ServiceCategoryChoices.choices
-        self.fields['type'].choices = ServiceTypeChoices.choices
