@@ -5,10 +5,11 @@
 {% block content %}
 <div class="card">
     <h1>Appointments</h1>
-    <a href="{% url 'create_appointment' %}">Create Appointment</a>
+    <a href="{% url 'appointment_create_view' %}">Create Appointment</a>
     <ul>
         {% for appointment in appointments %}
         <li>
+            <a href="{% url 'car_services:create_appointment' %}">Create Appointment</a>
             <a href="{% url 'appointment_detail' appointment.pk %}">Appointment #{{ appointment.pk }}:
                 {{ appointment.service }} on {{ appointment.appointment_date }}</a>
             <a href="{% url 'appointment_update' appointment.pk %}">Edit</a>
