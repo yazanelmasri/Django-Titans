@@ -29,7 +29,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'django-insecure-pntc&nvk+(g#i8tfc=whdudx__uga5-0w0s_^zdgyq4i-#1)!-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -139,8 +139,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'car_services/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'car_services/staticfiles')
+STATIC_URL = 'car_services/static/car_services'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/car_services')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
